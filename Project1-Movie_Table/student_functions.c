@@ -19,6 +19,14 @@ int lengthOfString(char str[]){
     return length;
 }
 
+void transferString(char source[500], char destination[1024]){
+    for (int i = 0; i < lengthOfString(source)+1; i++)
+    {
+        destination[i] = source[i];
+    }
+    
+}
+
 /**
  * Method takes a 2D array and finds the length of
  * biggest entry from all the lines and returns that
@@ -85,6 +93,28 @@ void Clean_Whitespace(char str[]) {
             strLen--;
         }
     }
+
+    //middle whitespace clean
+    strLen = lengthOfString(str);
+    for (int i = 0; i < strLen; i++)
+    {
+        if (str[i] == '\t')
+        {
+            str[i] = ' ';
+        }
+        
+        if (str[i] == ' ' && str[i+1] == ' ')
+        {
+            for (int j = i; j < strLen; j++)
+            {
+                str[j] = str[j + 1];
+            }
+            strLen--;
+            i--;
+        }
+        
+    }
+    
     
     return;
 }
@@ -102,13 +132,17 @@ void Fix_Case(char str[]) {
         {
             cap = 1;
         }
-        
-        if(cap == 1){
-            if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'z')){
-                str[i] = str[i] - ('z' - 'Z');
-                cap = 0;
+        else if(cap == 1){
+            if ((str[i] >= 'a' && str[i] <= 'z')){
+                str[i] = str[i] + ('Z' - 'z');
             }
+            cap = 0;
         }
+        else if ((str[i] >= 'A' && str[i] <= 'Z'))
+        {
+            str[i] += ('z' - 'Z');
+        }
+        
         
     }
     
@@ -119,19 +153,7 @@ void Fix_Case(char str[]) {
  * integer equivalent
  */
 int String_To_Year(char str[]) {
-    int year = 0;
-    // do your work here
-    for (int i = 0; i < lengthOfString(str)+1; i++)
-    {
-        if (str[i] == '\0')
-        {
-            break;
-        }
-        
-        year = (year*10) + (str[i]+48);
-    }
-    
-    return year;
+    return atoi(str);
 }
 
 
@@ -142,28 +164,37 @@ int String_To_Year(char str[]) {
  */
 void Director_Last_Name(char str[]) {
     // do your work here
-    char buffer[lengthOfString(str)]; //create a buffer with the same length as str
-    int j = 0;  //buffer index pointer
-    int wordRead = 0; //boolean to tell if we are ready to read last name
-    for (int i = 0; i < lengthOfString(str); i++)
+    int gotLast = 0;
+    int gotFirst = 0;
+    for (int i = lengthOfString(str); i >= 0; i--)
     {
-        printf("current char: %c\t j: %d\n", str[i], j);
-        if (str[i] == ' ')
+        if (str[i] >= 'a' && str[i] <= 'z')
         {
-            wordRead = 1;
+            if (!gotLast)
+            {
+                gotLast = i;
+            }
         }
-        else if(wordRead){
-            buffer[j++] = str[i];   //store current letter from str to buffer at index j and increment it
+        else if (str[i] == ' ')
+        {
+            if (str[i+1] >= 'A' && str[i+1] <= 'Z' && gotLast)
+            {
+                gotFirst = i+1;
+                break;
+            }
+        }  
+    }
 
-        }
+    char tempBuff[100];
+    int buffIndex = 0;
+    for (int i = gotFirst; i < gotLast+1; i++)
+    {
+        tempBuff[buffIndex++] = str[i];
     }
-    buffer[j] = '\0';
-    j = 0;
-    while(buffer[j] != '\0'){
-        str[j] = buffer[j];
-        j++;
-    }
-    str[j] = '\0';
+    tempBuff[buffIndex] = '\0';
+    transferString(tempBuff, str);
+    
+    
     
     return;
 }
@@ -174,7 +205,7 @@ void Director_Last_Name(char str[]) {
  */
 float String_To_Rating(char str[]) {
     // do your work here
-    float finalNumber = 0.0;
+    /*float finalNumber = 0.0;
     int decimalPointFlag = 0;   //this flag tells us whether the numbers are after decimal point or not
     int numsAfterDecimal = 0;
     int length = lengthOfString(str);
@@ -200,7 +231,8 @@ float String_To_Rating(char str[]) {
     }
     
     
-    return finalNumber;
+    return finalNumber;*/
+    return (float)atof(str);
 }
 
 
@@ -212,26 +244,32 @@ float String_To_Rating(char str[]) {
 */
 long long String_To_Dollars(char str[])  {
     // do your work here
-    long long finalNumber = 0;
-    int length = lengthOfString(str);
-    for (int i = 0; i < length; i++)
+    long long finalNum = 0;
+    for (int i = lengthOfString(str); i >= 0; i--)
     {
-        if ((str[i] >= '0') && (str[i] <= '9'))
+        if (str[i] == 'm' || str[i] == 'M')
         {
-            finalNumber = (finalNumber * 10) + (str[i]-48);
+            str[i] = '\0';
+            finalNum = atoll(str);
+            finalNum *= 1000000;
+            break;
         }
-        else if (str[i] == 'M' || str[i] == 'm')
+        else if (str[i] == 'k' || str[i] == 'K')
         {
-            finalNumber = finalNumber * 1000000;
+            str[i] = '\0';
+            finalNum = atoll(str);
+            finalNum *= 1000;
+            break;
         }
-        else if (str[i] == 'K' || str[i] == 'k'){
-            finalNumber *= 1000;
+        else if (str[i] >= '0' && str[i] <= '9')
+        {
+            finalNum = atoll(str);
+            break;
         }
-        
         
     }
     
-    return finalNumber;
+    return finalNum;
 }
 
 
@@ -242,87 +280,69 @@ long long String_To_Dollars(char str[])  {
  */
 void Split(char csv[10][1024], int num_movies, char titles[10][1024], int years[10], char directors[10][1024], float ratings[10], long long dollars[10]) {
     int titleIndex = 0, yearIndex = 0, directorIndex = 0, ratingIndex = 0, dollarIndex = 0;
-    num_movies = csv[0][0];
     for (int i = 0; i < 10; i++)
     {
-        if(csv[i][0] == '\0') break;
-        printf("%s\n", csv[i]);
-    }
-    
-    // do your work here
-    for (int i = 1; i < 10; i++)    //10 because that how many potential lines we are to encounter
-    {
-        if (csv[i][0] == '\0') break;
-        int numOfComma = 0;
-        char tempBuffer[50];
+        char tempBuffer[500];
         int bufferIndex = 0;
-        int lineIndex = 0;
+        int numOfComma = 0;
+        int hardExit = 0;
         for (int j = 0; j < lengthOfString(csv[i]); j++)
         {
-            if (csv[i][j] == ','){
-                switch (numOfComma++) //switch on the current number of commas and increment after it has been used
+            if (csv[i][j] == ',' || csv[i][j] == '\n')
+            {
+                if (csv[i][j] == '\n' && numOfComma == 0)
                 {
-                case 0: //titles
-                    tempBuffer[bufferIndex++] = '\0';
-                    Clean_Whitespace(tempBuffer);
-                    for (int k = 0; k < bufferIndex; k++)
-                    {
-                        titles[titleIndex][lineIndex++] = tempBuffer[k];    //title index for each line in csv and line index is for each char in line
-                    }
-                    titleIndex++;
-                    lineIndex = 0; 
-                    bufferIndex = 0;
-                    break;
-                case 1: //years
-                    tempBuffer[bufferIndex++] = '\0';
-                    Clean_Whitespace(tempBuffer);
-                    years[yearIndex++] = String_To_Year(tempBuffer);
-                    bufferIndex = 0;
-                    break;
-                case 3: //directors
-                    tempBuffer[bufferIndex++] = '\0';
-                    Clean_Whitespace(tempBuffer);
-                    for (int k = 0; k < bufferIndex; k++)
-                    {
-                        directors[directorIndex][lineIndex++] = tempBuffer[k];    //director index for each line in csv and line index is for each char in line
-                    }
-                    directorIndex++;
-                    lineIndex = 0; 
-                    bufferIndex = 0;
-                    break;
-                case 4: //ratings
-                    tempBuffer[bufferIndex++] = '\0';
-                    Clean_Whitespace(tempBuffer);
-                    ratings[ratingIndex++] = String_To_Rating(tempBuffer);
-                    bufferIndex = 0;
-                case 5: //dollars
-                    tempBuffer[bufferIndex++] = '\0';
-                    Clean_Whitespace(tempBuffer);
-                    dollars[dollarIndex++] = String_To_Dollars(tempBuffer);
-                    bufferIndex = 0;
-                    break;
-                default:
-                    tempBuffer[bufferIndex++] = '\0';
-                    bufferIndex = 0;
+                    hardExit++;
                     break;
                 }
                 
+                switch (++numOfComma)
+                {
+                    case 1:
+                        tempBuffer[bufferIndex] = '\0';
+                        Clean_Whitespace(tempBuffer);
+                        Fix_Case(tempBuffer);
+                        transferString(tempBuffer, titles[titleIndex++]);
+                        bufferIndex = 0;
+                        break;
+                    case 2:
+                        tempBuffer[bufferIndex] = '\0';
+                        Clean_Whitespace(tempBuffer);
+                        years[yearIndex++] = String_To_Year(tempBuffer);
+                        bufferIndex = 0;
+                        break;
+                    case 4:
+                        tempBuffer[bufferIndex] = '\0';
+                        Clean_Whitespace(tempBuffer);
+                        Director_Last_Name(tempBuffer);
+                        transferString(tempBuffer, directors[directorIndex++]);
+                        bufferIndex = 0;
+                        break;
+                    case 5:
+                        tempBuffer[bufferIndex] = '\0';
+                        Clean_Whitespace(tempBuffer);
+                        ratings[ratingIndex++] = String_To_Rating(tempBuffer);
+                        bufferIndex = 0;
+                        break;
+                    case 6:
+                        tempBuffer[bufferIndex] = '\0';
+                        Clean_Whitespace(tempBuffer);
+                        dollars[dollarIndex++] = String_To_Dollars(tempBuffer);
+                        bufferIndex = 0;
+                        break;
+                    default:
+                        tempBuffer[bufferIndex] = '\0';
+                        bufferIndex = 0;
+                        break;
+                }
             }
-            else
-            {
-                tempBuffer[bufferIndex] = csv[i][j];
-                bufferIndex++;
-            }
-            
-            
+            else tempBuffer[bufferIndex++] = csv[i][j];
+            if (hardExit) break;
         }
-        numOfComma = 0; 
+        
     }
-    
     return;
 }
-
-
 
 /* This function prints a well formatted table of
  * the movie data 
@@ -337,15 +357,14 @@ void Split(char csv[10][1024], int num_movies, char titles[10][1024], int years[
 void Print_Table(int num_movies, char titles[10][1024], int years[10], char directors[10][1024], float ratings[10], long long dollars[10]) {
     int titleLength = greatestEntryLength(titles);
     titleLength = ((titleLength+2) > 7) ? titleLength+2 : 7;
-    int directorsLength = greatestEntryLength(directors);
-    directorsLength = ((directorsLength+2) > 7) ? directorsLength+2 : 7;
-    printf("%-3s%-*s%-6s%-*s%6s%11s\n", "Id", titleLength, "Title", "Year", directorsLength, "Director", "Rating", "Revenue");
+    int directorLength = greatestEntryLength(directors);
+    directorLength = ((directorLength+2) > 7) ? directorLength+2 : 7;
+    printf("%-3s%-*s%-6s%-*s%6s%11s\n", "Id", titleLength, "Title", "Year", directorLength, "Director", "Rating", "Revenue");
     for (int i = 0; i < num_movies; i++)
     {
-        Fix_Case(titles[i]);
-        Director_Last_Name(directors[i]);
-        printf("%-3d%-*s%-6d%-*s%6.1f%11lld\n", (i+1), titleLength, titles[i], years[i], directorsLength, directors[i], ratings[i], dollars[i]);
+        printf("%-3d%-*s%-6d%-*s%6.1f%11lld\n", (i+1), titleLength, titles[i], years[i], directorLength, directors[i], ratings[i], dollars[i]);
     }
+    
     return;
 }
 

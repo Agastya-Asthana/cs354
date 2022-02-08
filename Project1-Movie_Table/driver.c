@@ -24,7 +24,7 @@ int main() {
     float ratings[10];
     long long dollars[10];
 
-    Read_CSV("movies1.csv", csv, &num_movies);
+    Read_CSV("movies2.csv", csv, &num_movies);
     Split(csv, num_movies, titles, years, directors, ratings, dollars);
     Print_Table(num_movies, titles, years, directors, ratings, dollars);
 
