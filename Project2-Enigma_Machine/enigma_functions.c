@@ -12,6 +12,19 @@ const char *ROTOR_CONSTANTS[] = {
         "FKQHTLXOCBJSPDZRAMEWNIUYGV",
 };
 
+/**
+ * Transfers string from one character array to the other
+*/
+void Transfer_String(char from[], char to[]){
+    int i;
+    for (i = 0; from[i] != '\0'; i++)
+    {
+        to[i] = from[i];
+    }
+    to[++i] = '\0';
+    
+}
+
 // This method reads a character string from the keyboard and 
 // stores the string in the parameter msg.
 // Keyboard input will be entirely uppercase and spaces followed by 
@@ -20,6 +33,7 @@ const char *ROTOR_CONSTANTS[] = {
 // terminated by the '\0' character
 // Do not include the \n entered from the keyboard
 void Get_Message(char msg[]){
+    scanf("%s", &msg);
     return;
 }
 
@@ -31,14 +45,23 @@ void Get_Message(char msg[]){
 // the \n entered by the user. 
 // The function returns the number of active rotors.
 int Get_Which_Rotors(char which_rotors[]){
-    return 0;
+    scanf("%4s", &which_rotors);
+    int numRotors = 0;
+    for (int i = 0; which_rotors[i] != '\0'; i++)
+    {
+        if (which_rotors[i] != ' ') numRotors++;   
+    }
+    
+    return numRotors;
 } 
 
 // This function reads an integer from the keyboard and returns it 
 // This number represents the number of rotations to apply to the 
 // encryption rotors.  The input will be between 0 and 25 inclusive
 int Get_Rotations(){
-    return 0;
+    int numRoatations;
+    scanf("%1d", &numRoatations);
+    return numRoatations;
 }
 
 
@@ -49,6 +72,17 @@ int Get_Rotations(){
 // encryptions_rotors[0] = "BDFHJLCPRTXVZNYEIWGAKMUSQO"
 // encryptions_rotors[1] = "EKMFLGDQVZNTOWYHXUSPAIBRCJ"
 void Set_Up_Rotors(char encryption_rotors[4][27], char which_rotors[5]){
+    int encryptionOpenIndex = 0;
+    for (int i = 0; which_rotors[i] != '\0'; i++)
+    {
+        if (which_rotors[i] != ' ')
+        {
+            int rotorIndexToMove = which_rotors[i] - 48;
+            Transfer_String(ROTOR_CONSTANTS[rotorIndexToMove], encryption_rotors[encryptionOpenIndex++]);
+        }
+        
+    }
+    
     return;
 }
 

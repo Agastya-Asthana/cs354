@@ -19,6 +19,11 @@ int main() {
     rotations = Get_Rotations();
 
     Set_Up_Rotors(encryption_rotors, which_rotors);
+    for (int i = 0; i < 3; i++)
+    {
+        printf("-> %s\n", encryption_rotors[i]);
+    }
+    
     Apply_Rotation(rotations, encryption_rotors);
     Encrypt(encryption_rotors, num_active_rotors, message, encrypted_message);
     Decrypt(encryption_rotors, num_active_rotors, message, decrypted_message);
