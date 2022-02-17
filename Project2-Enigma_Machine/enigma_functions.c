@@ -15,13 +15,14 @@ const char *ROTOR_CONSTANTS[] = {
 /**
  * Transfers string from one character array to the other
 */
-void Transfer_String(char from[], char to[]){
+void Transfer_String(char from[], char to[], int offset){
+    offset = (offset > 0) ? offset : 0;
     int i;
     for (i = 0; from[i] != '\0'; i++)
     {
-        to[i] = from[i];
+        to[i+offset] = from[i];
     }
-    to[++i] = '\0';
+    to[i+offset] = '\0';
     
 }
 
@@ -45,12 +46,14 @@ void Get_Message(char msg[]){
 // the \n entered by the user. 
 // The function returns the number of active rotors.
 int Get_Which_Rotors(char which_rotors[]){
-    scanf("%4s", &which_rotors);
+    char buff[5];
+    scanf("%4s", &buff);
     int numRotors = 0;
-    for (int i = 0; which_rotors[i] != '\0'; i++)
+    for (int i = 0; buff[i] != '\0'; i++)
     {
-        if (which_rotors[i] != ' ') numRotors++;   
+        if (buff[i] != ' ') numRotors++;
     }
+    Transfer_String(buff, which_rotors, 0);
     
     return numRotors;
 } 
@@ -73,14 +76,20 @@ int Get_Rotations(){
 // encryptions_rotors[1] = "EKMFLGDQVZNTOWYHXUSPAIBRCJ"
 void Set_Up_Rotors(char encryption_rotors[4][27], char which_rotors[5]){
     int encryptionOpenIndex = 0;
-    for (int i = 0; which_rotors[i] != '\0'; i++)
+    int i;
+    for (i = 0; which_rotors[i] != '\0'; i++)
     {
         if (which_rotors[i] != ' ')
         {
             int rotorIndexToMove = which_rotors[i] - 48;
-            Transfer_String(ROTOR_CONSTANTS[rotorIndexToMove], encryption_rotors[encryptionOpenIndex++]);
+            Transfer_String(ROTOR_CONSTANTS[rotorIndexToMove], encryption_rotors[encryptionOpenIndex++], 0);
         }
         
+    }
+    if (i < 3){
+        for (int j = i; j <= 3; ++j) {
+            encryption_rotors[j][0] = '\0';
+        }
     }
     
     return;
@@ -93,6 +102,22 @@ void Set_Up_Rotors(char encryption_rotors[4][27], char which_rotors[5]){
 // SQOBDFHJLCPRTXVZNYEIWGAKMU.  Apply the same rotation to all for strings in 
 // encryption_rotors
 void Apply_Rotation(int rotations, char encryption_rotors[4][27]) {
+    char buffExtraChar[rotations+1];    //extra space for null terminator
+    int buffExtraCharIndex = 0;
+    char buffRotator[27+rotations];
+    for (int i = 0; encryption_rotors[i][0] != '\0'; ++i) {
+        for (int j = (26-rotations); j < 26; ++j) { //storing the extra chars that will overflow
+            buffExtraChar[buffExtraCharIndex++] = encryption_rotors[i][j];
+        }
+        buffExtraChar[buffExtraCharIndex] = '\0';
+        Transfer_String(encryption_rotors[i], buffRotator, rotations);
+        for (int j = 0; j < rotations; ++j) {
+            buffRotator[j] = buffExtraChar[j];
+        }
+        buffRotator[26] = '\0';
+        Transfer_String(buffRotator, encryption_rotors[i], 0);
+
+    }
     return;
 }
 
