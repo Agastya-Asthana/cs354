@@ -14,6 +14,7 @@ const char *ROTOR_CONSTANTS[] = {
 
 /**
  * Transfers string from one character array to the other
+ * Has an offset feature to offset character placement
 */
 void Transfer_String(char from[], char to[], int offset){
     offset = (offset > 0) ? offset : 0;
