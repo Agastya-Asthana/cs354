@@ -27,6 +27,15 @@ void Transfer_String(char from[], char to[], int offset){
     
 }
 
+/*
+ * Length of string
+ */
+int lengthOfString(char text[]){
+    int i;
+    for (i = 0; text[i] != '\0'; ++i);
+    return ++i;
+}
+
 // This method reads a character string from the keyboard and 
 // stores the string in the parameter msg.
 // Keyboard input will be entirely uppercase and spaces followed by 
@@ -126,6 +135,19 @@ void Apply_Rotation(int rotations, char encryption_rotors[4][27]) {
 // The encrypted message is stored in the string encryped_msg 
 // Do not change spaces, make sure your encryped_msg is a \0 terminated string
 void Encrypt(char encryption_rotors[4][27], int num_active_rotors, char msg[], char encrypted_msg[]){
+    Transfer_String(msg, encrypted_msg, 0);
+
+    int i;
+    for (i = 0; encrypted_msg[i] != '\0'; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            if (encryption_rotors[i][0] == '\0') break;
+            else{
+                int characterIndex = encrypted_msg[i] - 65;
+                encrypted_msg[i] = encryption_rotors[j][characterIndex];
+            }
+        }
+    }
+    encrypted_msg[i] = '\0';
     return;
 }
 
