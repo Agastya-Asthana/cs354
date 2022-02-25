@@ -10,6 +10,9 @@ struct STUDENT {
     int id; //4 bytes for ints
 };
 
+typedef struct STUDENT STUDENT;
+typedef struct EMPLOYEE {char *name; int id;} EMPLOYEE;
+
 void Print_Student(struct STUDENT s){
     printf("By value funcstion\n");
     // Does not use call by reference
@@ -33,6 +36,8 @@ void Print_Student_Reference(struct STUDENT *s){
 
 int main(){
     struct STUDENT s;   //creates an instance of this new type
+    STUDENT  s2;
+    EMPLOYEE e1;
     s.name = "Ligma";
     s.id = 87736;
     Print_Student(s);
