@@ -28,12 +28,13 @@ void Transfer_String(char from[], char to[], int offset){
 }
 
 /*
- * Length of string
+ * Finds the index of the given char in an array
  */
-int lengthOfString(char text[]){
-    int i;
-    for (i = 0; text[i] != '\0'; ++i);
-    return ++i;
+int FindIndexOf(char letter, const char *array){
+    for (int i = 0; array[i] != '\0'; ++i) {
+        if (array[i] == letter) return i;
+    }
+    return -1;
 }
 
 // This method reads a character string from the keyboard and 
@@ -44,7 +45,12 @@ int lengthOfString(char text[]){
 // terminated by the '\0' character
 // Do not include the \n entered from the keyboard
 void Get_Message(char msg[]){
-    scanf("%s", &msg);
+    char c;
+    int i;
+    for (i = 0; (c=getchar()) != '\n' ; ++i) {
+        msg[i] = c;
+    }
+    msg[i] = '\0';
     return;
 }
 
@@ -72,9 +78,9 @@ int Get_Which_Rotors(char which_rotors[]){
 // This number represents the number of rotations to apply to the 
 // encryption rotors.  The input will be between 0 and 25 inclusive
 int Get_Rotations(){
-    int numRoatations;
-    scanf("%1d", &numRoatations);
-    return numRoatations;
+    int roatations;
+    scanf("%d", &roatations);
+    return roatations;
 }
 
 
@@ -126,6 +132,7 @@ void Apply_Rotation(int rotations, char encryption_rotors[4][27]) {
         }
         buffRotator[26] = '\0';
         Transfer_String(buffRotator, encryption_rotors[i], 0);
+        buffExtraCharIndex = 0;
 
     }
     return;
@@ -137,17 +144,14 @@ void Apply_Rotation(int rotations, char encryption_rotors[4][27]) {
 void Encrypt(char encryption_rotors[4][27], int num_active_rotors, char msg[], char encrypted_msg[]){
     Transfer_String(msg, encrypted_msg, 0);
 
-    int i;
-    for (i = 0; encrypted_msg[i] != '\0'; ++i) {
-        for (int j = 0; j < 4; ++j) {
-            if (encryption_rotors[i][0] == '\0') break;
-            else{
-                int characterIndex = encrypted_msg[i] - 65;
-                encrypted_msg[i] = encryption_rotors[j][characterIndex];
-            }
+    for (int i = 0; i < num_active_rotors; ++i){
+        for (int j = 0; encrypted_msg[j] != '\0'; ++j) {
+            if (encrypted_msg[j] == ' ') continue;
+
+            int characterIndex = encrypted_msg[j] - 65;
+            encrypted_msg[j] = encryption_rotors[i][characterIndex];
         }
     }
-    encrypted_msg[i] = '\0';
     return;
 }
 
@@ -158,6 +162,15 @@ void Encrypt(char encryption_rotors[4][27], int num_active_rotors, char msg[], c
 // remember the encryption rotors must be used in the reverse order to decrypt a message
 // Do not change spaces, make sure your decrytped_msg is a \0 terminated string
 void Decrypt(char encryption_rotors[4][27], int num_active_rotors, char encrypted_msg[], char decrypted_msg[]) {
+    Transfer_String(encrypted_msg, decrypted_msg, 0);
+    for (int i = (num_active_rotors-1); i >= 0; --i) {
+        for (int j = 0; decrypted_msg[j] != '\0'; ++j) {
+            if(decrypted_msg[j] == ' ') continue;
+
+            int lookupIndex = FindIndexOf(decrypted_msg[j], encryption_rotors[i]);
+            decrypted_msg[j] = ROTOR_CONSTANTS[0][lookupIndex];
+        }
+    }
     return;
 }
 
