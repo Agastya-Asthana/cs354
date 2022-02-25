@@ -31,10 +31,9 @@ int main() {
         printf("-> %s\n", encryption_rotors[i]);
     }
     Encrypt(encryption_rotors, num_active_rotors, message, encrypted_message);
-    //printf("The encrypted message is: %s ", encrypted_message);
     Decrypt(encryption_rotors, num_active_rotors, encrypted_message, decrypted_message);
 
-    printf("The encrypted message is: %s ", encrypted_message);
+    printf("The encrypted message is: %s\n", encrypted_message);
     printf("The decrypted message is: %s ", decrypted_message);
 
     return 0;
