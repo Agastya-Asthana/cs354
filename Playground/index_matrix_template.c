@@ -20,7 +20,7 @@ void Free_Matrix(int **M, int r){
 }
 
 int ** Create_RxC_Index_Matrix(int r, int c){
-    int **M = malloc(sizeof(int) * r);
+    int **M = malloc(sizeof(int *) * r);
     for (int i = 0; i < r; ++i) {
         M[i] = malloc(sizeof(int) * c);
     }
