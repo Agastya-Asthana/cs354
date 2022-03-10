@@ -1,4 +1,73 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja /Users/agastyaasthana/Documents/cs354/Playground
 -- Configuring done
--- Generating done
--- Build files have been written to: /Users/agastyaasthana/Documents/cs354/Playground/cmake-build-debug
+CMake Error at CMakeLists.txt:12 (add_executable):
+  Cannot find source file:
+
+    index_matrix.c
+
+
+CMake Error at CMakeLists.txt:11 (add_executable):
+  Cannot find source file:
+
+    linkedList.c
+
+
+CMake Error at CMakeLists.txt:9 (add_executable):
+  Cannot find source file:
+
+    Structs.c
+
+
+CMake Error at CMakeLists.txt:10 (add_executable):
+  Cannot find source file:
+
+    enlarge.c
+
+
+CMake Error at CMakeLists.txt:8 (add_executable):
+  Cannot find source file:
+
+    transpose.c
+
+
+CMake Error at CMakeLists.txt:7 (add_executable):
+  Cannot find source file:
+
+    dynamic_array.c
+
+
+CMake Error at CMakeLists.txt:6 (add_executable):
+  Cannot find source file:
+
+    reverse.c
+
+
+CMake Error at CMakeLists.txt:12 (add_executable):
+  No SOURCES given to target: IndexMatrix
+
+
+CMake Error at CMakeLists.txt:11 (add_executable):
+  No SOURCES given to target: LinkedList
+
+
+CMake Error at CMakeLists.txt:9 (add_executable):
+  No SOURCES given to target: Structs
+
+
+CMake Error at CMakeLists.txt:10 (add_executable):
+  No SOURCES given to target: Enlarge
+
+
+CMake Error at CMakeLists.txt:8 (add_executable):
+  No SOURCES given to target: Transpose
+
+
+CMake Error at CMakeLists.txt:7 (add_executable):
+  No SOURCES given to target: DynamicArray
+
+
+CMake Error at CMakeLists.txt:6 (add_executable):
+  No SOURCES given to target: Reverse
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
