@@ -1,0 +1,20 @@
+# ninja log v5
+0	239	1648159275030914717	CMakeFiles/Project_4_Memory_Allocator.dir/driver_alloc_8.c.o	53ceb9c605fdc8b6
+119	202	1649199571504524846	Project_4_Memory_Allocator	2901912b36d6d428
+0	118	1649199571419328178	CMakeFiles/Project_4_Memory_Allocator.dir/driver_alloc_1_24.c.o	d9a9d5d690a8aef7
+0	66	1649198367603825810	CMakeFiles/Project_4_Memory_Allocator.dir/driver_alloc_1.c.o	25cd39e4ef3fed11
+1	225	1649198964749065787	CMakeFiles/Project_4_Memory_Allocator.dir/mem_functions_template.c.o	714734cc26a942f3
+0	216	1649199408125110675	CMakeFiles/Project_4_Memory_Allocator.dir/mem_init.c.o	16f900aa986f758
+0	65	1649199451989135611	CMakeFiles/Project_4_Memory_Allocator.dir/driver_alloc_8_free.c.o	45fbc094e70da9c8
+1	291	1649200362518050116	CMakeFiles/Project_4_Memory_Allocator.dir/driver_alloc_1_24.c.o	d9a9d5d690a8aef7
+3	291	1649200362518277117	CMakeFiles/Project_4_Memory_Allocator.dir/mem_functions.c.o	644b208ff1d5151c
+292	397	1649200362630388571	Project_4_Memory_Allocator	669b30f6ab5589e2
+0	61	1649200389305579327	CMakeFiles/Project_4_Memory_Allocator.dir/mem_functions.c.o	644b208ff1d5151c
+61	142	1649200389388349151	Project_4_Memory_Allocator	669b30f6ab5589e2
+0	237	1649200426467250832	CMakeFiles/Project_4_Memory_Allocator.dir/driver_alloc_1_24.c.o	d9a9d5d690a8aef7
+1	237	1649200426467362999	CMakeFiles/Project_4_Memory_Allocator.dir/mem_functions.c.o	644b208ff1d5151c
+237	329	1649200426563908384	Project_4_Memory_Allocator	669b30f6ab5589e2
+1	218	1649200990735115625	CMakeFiles/Project_4_Memory_Allocator.dir/mem_functions.c.o	644b208ff1d5151c
+218	310	1649200990831150091	Project_4_Memory_Allocator	669b30f6ab5589e2
+0	63	1649201025545365940	CMakeFiles/Project_4_Memory_Allocator.dir/driver_alloc_1_24.c.o	d9a9d5d690a8aef7
+63	143	1649201025625847504	Project_4_Memory_Allocator	669b30f6ab5589e2
