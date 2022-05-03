@@ -59,50 +59,49 @@ To_Upper:
 # Use this for debugging
 # Comment out when finished - your function should not print anything
 # Note putchar overwrites all caller saved registers including argument registers
-	movq 	%rdi, -16(%rbp)
-	movl	$97, %eax
-	movl	%eax, %edi
-	call	putchar@PLT
+	#movl	$97, %eax
+	#movl	%eax, %edi
+	#call	putchar@PLT
 
 
 # Body of function
-	movl $0, -4(%rbp) # save the value 0 in location of i
-	jmp LOOP_CONDITION # hop into evaluating the loop
+	movq 	%rdi, -16(%rbp) # save rdi
+	movl	$0, -4(%rbp) # save the value 0 in location of i
+	jmp	LOOP_CONDITION # hop into evaluating the loop
 
 LOOP_BODY:
-	cmpb $97, -6(%rbp) # compare against 'a'
-	jle INCREMENT # move on, as my friend should
-	cmpb $122, -6(%rbp) # compare against 'z'
-	jg INCREMENT # move on, she's talking to other dudes Zach
-	movslq -4(%rbp), %rax # move i to eax
-	movq -16(%rbp), %rdx # move arr ptr into rdx
-	addq %rax, %rdx # arr[i] mem location
-	movzbl (%rdx), %edx # arr[i] actual value
-	add $-32, %edx
-	movl %edx, %ecx
-	#leal -32(%rdx), %ecx # subtract 32 from val in rdx, and store that in ecx	
-	movq -16(%rbp), %rdx # get arr ptr back
-	addq %rax, %rdx # arr[i] mem location
-	movb %cl, (%rdx) # update char in arr[i] location	
+	cmpb	$97, -6(%rbp) # compare against 'a'
+	jle	INCREMENT # move on, as my friend should
+	cmpb	$122, -6(%rbp) # compare against 'z'
+	jg	INCREMENT # move on, she's talking to other dudes Zach
+	movslq	-4(%rbp), %rax # move i to eax
+	movq	-16(%rbp), %rdx # move arr ptr into rdx
+	addq	%rax, %rdx # arr[i] mem location
+	movzbl	(%rdx), %edx # arr[i] actual value
+	add	$-32, %edx
+	movl	%edx, %ecx
+	movq	-16(%rbp), %rdx # get arr ptr back
+	addq	%rax, %rdx # arr[i] mem location
+	movb	%cl, (%rdx) # update char in arr[i] location	
 	
 
 INCREMENT:
-	movl -4(%rbp), %edx # load i into edx
-	addl $1, %edx # increment by one
-	movl %edx, -4(%rbp) # save i back into mem
+	movl	-4(%rbp), %edx # load i into edx
+	addl	$1, %edx # increment by one
+	movl	%edx, -4(%rbp) # save i back into mem
 
 LOOP_CONDITION:
-	movl -4(%rbp), %edx # load i into edx
-	movq -16(%rbp), %rax # load arr ptr in rax
-	addq %rdx, %rax # arr[i] mem location
-	movzbl (%rax), %eax # arr[i] acutal value
-	movb %al, -6(%rbp) # save the char in memeory
-	cmpb $0, %al # check if the char was a terminating char
-	jne LOOP_BODY
+	movl	-4(%rbp), %edx # load i into edx
+	movq	-16(%rbp), %rax # load arr ptr in rax
+	addq	%rdx, %rax # arr[i] mem location
+	movzbl	(%rax), %eax # arr[i] acutal value
+	movb	%al, -6(%rbp) # save the char in memeory
+	cmpb	$0, %al # check if the char was a terminating char
+	jne	LOOP_BODY # execute the loop since we're not at the end
 
 
 
 # Epilogue
-	addq $16, %rsp
-	popq %rbp 	
+	addq	$16, %rsp
+	popq	%rbp 	
 	ret
