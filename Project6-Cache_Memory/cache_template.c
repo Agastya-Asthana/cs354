@@ -73,16 +73,11 @@ int main() {
     
     // READ SOME DATA
     char c;
-    c = Read_Data_From_Cache(0); printf("data = %c : hit count = %-3u : miss count 
-= %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
-    c = Read_Data_From_Cache(1); printf("data = %c : hit count = %-3u : miss count 
-= %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
-    c = Read_Data_From_Cache(2); printf("data = %c : hit count = %-3u : miss count 
-= %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
-    c = Read_Data_From_Cache(3); printf("data = %c : hit count = %-3u : miss count 
-= %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
-    c = Read_Data_From_Cache(4); printf("data = %c : hit count = %-3u : miss count 
-= %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    c = Read_Data_From_Cache(0); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    c = Read_Data_From_Cache(1); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    c = Read_Data_From_Cache(2); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    c = Read_Data_From_Cache(3); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    c = Read_Data_From_Cache(4); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
     // WRITE A LOT MORE TESTS
     return 0;
 }
