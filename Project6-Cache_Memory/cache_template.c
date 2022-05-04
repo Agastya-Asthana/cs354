@@ -27,7 +27,7 @@ void Read_Data_From_Ram(unsigned address) {
     address >>= 5; address <<= 5; // get align the data
     read_data_count++;
     FILE *file;
-    file = fopen("alice_in_wonderland.txt", "r");
+    file = fopen("./alice_in_wonderland.txt", "r");
     fseek(file, address, SEEK_SET);
     for (int i = 0; i<32; i++) system_bus[i] = fgetc(file);
     return;
@@ -45,26 +45,30 @@ char Read_Data_From_Cache(unsigned address){
 
     int byte_offset = address & 31; // should help me access each cell in data array 5 bits
     int set_number = address & 224; // 3 bits to tell me set number
-    int tag_number = address - byte_offset - tag_number;
+    int tag_number = address - byte_offset - set_number;
     
     struct SET current_set = cache.set[set_number];
-    if(current_set.line[0].valid && current_set.line[0].tag == tag_number){
+    if(cache.set[set_number].line[0].valid && cache.set[set_number].line[0].tag == tag_number){
         hit = 1;
         hit_count++;
-        return current_set.line[0].data[byte_offset];
+	//printf("1-matched tag\n");
+        return cache.set[set_number].line[0].data[byte_offset];
     }
     
     if(!hit){
         miss_count++;
-        read_data_count++;
+       // read_data_count++;
 
         Read_Data_From_Ram(address);
-        
+ 
+	cache.set[set_number].line[0].valid = 1;
         for(int i = 0; i < 32; i++){
-            current_set.line[0].data[i] = system_bus[i];
+	    //printf("%d", i);
+            cache.set[set_number].line[0].data[i] = system_bus[i];
             if(system_bus[i] == '\0') break;
         }
-        Read_Data_From_Cache(address);
+	return cache.set[set_number].line[0].data[byte_offset];
+        //Read_Data_From_Cache(address);
     }
 }
 int main() {
@@ -74,8 +78,11 @@ int main() {
     // READ SOME DATA
     char c;
     c = Read_Data_From_Cache(0); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
-    c = Read_Data_From_Cache(1); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
-    c = Read_Data_From_Cache(2); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    printf("1\n");
+    c = Read_Data_From_Cache(37); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    printf("2\n");
+    c = Read_Data_From_Cache(42); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    printf("3\n");
     c = Read_Data_From_Cache(3); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
     c = Read_Data_From_Cache(4); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
     // WRITE A LOT MORE TESTS
