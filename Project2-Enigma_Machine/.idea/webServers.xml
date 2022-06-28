@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="94b9031d-54a3-4efb-a687-a19f31b8cd92" name="CS Server Machine" url="http://best-linux.cs.wisc.edu">
+        <fileTransfer accessType="SFTP" host="best-linux.cs.wisc.edu" port="22" sshConfigId="c2c835ed-b504-4255-9a3a-d0f48076ec1e" sshConfig="asthana@best-linux.cs.wisc.edu:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

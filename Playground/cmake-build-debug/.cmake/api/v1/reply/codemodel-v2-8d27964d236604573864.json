@@ -1,0 +1,123 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Playground",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "DynamicArray::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-DynamicArray-Debug-cd4d952d1fdac6978d66.json",
+					"name" : "DynamicArray",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Enlarge::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Enlarge-Debug-c8e81ebc5c210ee45e21.json",
+					"name" : "Enlarge",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "IndexMatrix::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-IndexMatrix-Debug-82988a1ec302f817729d.json",
+					"name" : "IndexMatrix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "LinkedList::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-LinkedList-Debug-261f76888c0f356a68d4.json",
+					"name" : "LinkedList",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Problem::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Problem-Debug-716bce9acdce6a3aa533.json",
+					"name" : "Problem",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Reverse::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Reverse-Debug-b3dbc99067bf4e59db3f.json",
+					"name" : "Reverse",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Structs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Structs-Debug-92048667d9b82b2cf3fb.json",
+					"name" : "Structs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Transpose::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Transpose-Debug-f2a80be67e4eb078df7b.json",
+					"name" : "Transpose",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/agastyaasthana/Documents/cs354/Playground/cmake-build-debug",
+		"source" : "/Users/agastyaasthana/Documents/cs354/Playground"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

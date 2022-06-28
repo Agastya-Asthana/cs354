@@ -51,20 +51,24 @@ char Read_Data_From_Cache(unsigned address){
     if(current_set.line[0].valid && current_set.line[0].tag == tag_number){
         hit = 1;
         hit_count++;
+	//printf("1-matched tag\n");
         return current_set.line[0].data[byte_offset];
     }
     
     if(!hit){
         miss_count++;
-        read_data_count++;
+       // read_data_count++;
 
         Read_Data_From_Ram(address);
-        
+ 
+	current_set.line[0].valid = 1;
         for(int i = 0; i < 32; i++){
+	    //printf("%d", i);
             current_set.line[0].data[i] = system_bus[i];
             if(system_bus[i] == '\0') break;
         }
-        Read_Data_From_Cache(address);
+	return current_set.line[0].data[byte_offset];
+        //Read_Data_From_Cache(address);
     }
 }
 int main() {
@@ -74,8 +78,11 @@ int main() {
     // READ SOME DATA
     char c;
     c = Read_Data_From_Cache(0); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    printf("1\n");
     c = Read_Data_From_Cache(1); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    printf("2\n");
     c = Read_Data_From_Cache(2); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
+    printf("3\n");
     c = Read_Data_From_Cache(3); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
     c = Read_Data_From_Cache(4); printf("data = %c : hit count = %-3u : miss count = %-3u : read data count = %-3u\n", c, hit_count, miss_count,read_data_count );
     // WRITE A LOT MORE TESTS

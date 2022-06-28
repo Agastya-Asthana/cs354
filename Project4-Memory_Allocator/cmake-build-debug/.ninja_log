@@ -1,0 +1,5 @@
+# ninja log v5
+0	366	1649527310051530176	CMakeFiles/Project_4_Memory_Allocator.dir/driver_alloc_1_24.c.o	d9a9d5d690a8aef7
+0	216	1649199408125110675	CMakeFiles/Project_4_Memory_Allocator.dir/mem_init.c.o	16f900aa986f758
+367	532	1649527310225905206	Project_4_Memory_Allocator	669b30f6ab5589e2
+1	218	1649200990735115625	CMakeFiles/Project_4_Memory_Allocator.dir/mem_functions.c.o	644b208ff1d5151c

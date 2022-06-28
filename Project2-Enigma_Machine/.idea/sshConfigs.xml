@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="best-linux.cs.wisc.edu" id="c2c835ed-b504-4255-9a3a-d0f48076ec1e" port="22" nameFormat="DESCRIPTIVE" username="asthana" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="Project_4_Memory_Allocator" targetName="Project_4_Memory_Allocator" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="11a408c0-cdc7-4ae8-a0f2-599f12f7c30b" name="Changes" comment="Finish project 4 - memory allocators">
+      <change afterPath="$PROJECT_DIR$/../Project6-Cache_Memory/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/cache-v2-4716172081a78798e54d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-0c6ab523757d1a425bf9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-69669a81fd5886f436c1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/index-2022-03-08T19-10-43-0268.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/target-DynamicArray-Debug-80c59b5473053c15fe0e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/target-Enlarge-Debug-892cbc04c970ffaf4de2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/target-IndexMatrix-Debug-e3c6f4f80097d99cf38d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/target-LinkedList-Debug-1a711df57e21fdfd6845.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/target-Reverse-Debug-e3efec187d7b59afb613.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/target-Structs-Debug-d5695aca5fe090c635ba.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/target-Transpose-Debug-ab937b8e546fbb1cee9b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-38e7ea8fb0b22a89e16e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../Playground/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Playground/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Playground/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Playground/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../Playground/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Playground/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Playground/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../Playground/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project6-Cache_Memory/cache_template.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Project6-Cache_Memory/cache_template.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2021" />
+    <option name="minorVersion" value="3.3" />
+  </component>
+  <component name="ProjectId" id="26qJveAYu7a4zwrgmOsRC94SiSK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "cmake.loaded.for.project": "true",
+    "last_opened_file_path": "/Users/agastyaasthana/Documents/cs354/Project4-Memory_Allocator"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Project_4_Memory_Allocator" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_4_Memory_Allocator" TARGET_NAME="Project_4_Memory_Allocator" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Project_4_Memory_Allocator" RUN_TARGET_NAME="Project_4_Memory_Allocator">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11a408c0-cdc7-4ae8-a0f2-599f12f7c30b" name="Changes" comment="" />
+      <created>1648145414899</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648145414899</updated>
+      <workItem from="1648145416141" duration="9921000" />
+      <workItem from="1649125386907" duration="1013000" />
+      <workItem from="1649193857666" duration="7740000" />
+      <workItem from="1649221685800" duration="49000" />
+      <workItem from="1649525396907" duration="2239000" />
+      <workItem from="1651619647515" duration="236000" />
+    </task>
+    <task id="LOCAL-00001" summary="Finish project 4 - memory allocators">
+      <created>1649221710588</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1649221710588</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Finish project 4 - memory allocators" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish project 4 - memory allocators" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/driver_alloc_8.c</url>
+          <line>7</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/driver_alloc_1.c</url>
+          <line>13</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

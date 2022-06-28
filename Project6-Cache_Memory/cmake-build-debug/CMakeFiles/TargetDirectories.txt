@@ -1,0 +1,3 @@
+/Users/agastyaasthana/Documents/cs354/Project6-Cache_Memory/cmake-build-debug/CMakeFiles/Cache.dir
+/Users/agastyaasthana/Documents/cs354/Project6-Cache_Memory/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/agastyaasthana/Documents/cs354/Project6-Cache_Memory/cmake-build-debug/CMakeFiles/rebuild_cache.dir

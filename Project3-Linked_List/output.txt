@@ -1,0 +1,27 @@
+creating linked list
+hardcoding some data
+Testing Print_List
+1 -> 2
+Testing Size
+size = 2
+Testing Push_Front
+0 -> 1 -> 2
+Testing Push_Back
+0 -> 1 -> 2 -> 3
+Testing Pop_Front
+Element popped was 0
+1 -> 2 -> 3
+size = 3
+Testing Pop_Back
+Element popped was 3
+1 -> 2
+size = 2
+5 -> 5 -> 1 -> 2
+5 count = 2
+Testing Delete
+5 -> 5 -> 1 -> 2
+5 -> 5 -> 2
+Testing Is_Empty
+List is not empty
+List is Empty
+1 -> 2 -> 3
